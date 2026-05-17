@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login — AL AROUBA HEALTH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d2d6b; --blue: #1a4fa0; --sky: #2a7fd4;
+      --accent: #e8f1fc; --white: #fff; --muted: #5a6e85;
+    }
+    body {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #05112a 0%, #0d2d6b 50%, #1a4fa0 100%);
+      font-family: 'DM Sans', sans-serif; position: relative; overflow: hidden;
+    }
+    /* Animated background orbs */
+    body::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(42,127,212,0.25) 0%, transparent 65%);
+      border-radius: 50%; animation: orb-a 12s ease-in-out infinite;
+    }
+    body::after {
+      content: ''; position: absolute; bottom: -150px; left: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(126,200,247,0.15) 0%, transparent 65%);
+      border-radius: 50%; animation: orb-b 9s ease-in-out infinite reverse;
+    }
+    @keyframes orb-a { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,30px)} }
+    @keyframes orb-b { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-20px)} }
+
+    .login-card {
+      position: relative; z-index: 2;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 52px 48px;
+      width: 100%; max-width: 440px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .login-logo {
+      text-align: center; margin-bottom: 36px;
+    }
+    .login-logo-icon {
+      width: 72px; height: 72px; margin: 0 auto 16px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .login-logo h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: white; letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .login-logo span {
+      font-size: 0.7rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 2px; text-transform: uppercase; font-weight: 500;
+    }
+    .login-divider {
+      width: 40px; height: 2px;
+      background: linear-gradient(90deg, #7ec8f7, rgba(255,255,255,0.2));
+      border-radius: 2px; margin: 20px auto;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; font-size: 0.75rem; font-weight: 600;
+      color: rgba(255,255,255,0.6); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%; padding: 14px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 14px; color: white;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      outline: none; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus {
+      border-color: rgba(126,200,247,0.6);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 3px rgba(126,200,247,0.1);
+    }
+    .form-input.error { border-color: rgba(248,113,113,0.7); }
+
+    .login-btn {
+      width: 100%; padding: 15px;
+      background: linear-gradient(135deg, #1a4fa0, #2a7fd4);
+      border: none; border-radius: 14px;
+      color: white; font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;
+      cursor: pointer; margin-top: 8px;
+      transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+      box-shadow: 0 8px 24px rgba(26,79,160,0.4);
+      position: relative; overflow: hidden;
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(42,127,212,0.5);
+      filter: brightness(1.05);
+    }
+    .login-btn:active { transform: translateY(0); }
+    .login-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .error-msg {
+      background: rgba(248,113,113,0.15);
+      border: 1px solid rgba(248,113,113,0.3);
+      border-radius: 10px; padding: 12px 16px;
+      font-size: 0.82rem; color: #fca5a5;
+      margin-top: 16px; display: none; text-align: center;
+    }
+    .error-msg.show { display: block; animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%,100%{transform:translateX(0)} 20%{transform:translateX(-8px)} 60%{transform:translateX(8px)} 80%{transform:translateX(-4px)}
+    }
+    .back-link {
+      display: block; text-align: center; margin-top: 24px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-link:hover { color: rgba(255,255,255,0.7); }
+    .security-note {
+      display: flex; align-items: center; gap: 8px;
+      justify-content: center; margin-top: 28px;
+      font-size: 0.72rem; color: rgba(255,255,255,0.3);
+    }
+    @media (max-width: 480px) {
+      .login-card { padding: 36px 24px; margin: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-icon">🏥</div>
+      <h1>AL AROUBA HEALTH</h1>
+      <span>Product Admin Panel</span>
+      <div class="login-divider"></div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Username</label>
+      <input class="form-input" id="username" type="text" placeholder="Enter admin username" autocomplete="off" spellcheck="false"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="form-input" id="password" type="password" placeholder="Enter admin password"/>
+    </div>
+
+    <button class="login-btn" id="loginBtn" onclick="doLogin()">Sign In to Dashboard</button>
+    <div class="error-msg" id="errorMsg">❌ Invalid credentials. Please try again.</div>
+
+    <a class="back-link" href="../index.html">← Back to Website</a>
+
+    <div class="security-note">
+      🔒 Secured admin access only
+    </div>
+  </div>
+
+  <script>
+    // ── Credentials (change these!) ──
+    // For GitHub Pages, these are stored client-side.
+    // For stronger security, use environment-specific hashes.
+    const ADMIN_USER = 'admin';
+    const ADMIN_PASS = 'alarouba2024';
+
+    // Allow Enter key
+    document.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+    function doLogin() {
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
+      const btn = document.getElementById('loginBtn');
+      const err = document.getElementById('errorMsg');
+
+      btn.disabled = true;
+      btn.textContent = 'Signing in…';
+      err.classList.remove('show');
+
+      setTimeout(() => {
+        if (u === ADMIN_USER && p === ADMIN_PASS) {
+          // Store session token
+          sessionStorage.setItem('admin_auth', btoa(u + ':' + Date.now()));
+          sessionStorage.setItem('admin_user', u);
+          window.location.href = 'dashboard.html';
+        } else {
+          document.getElementById('username').classList.add('error');
+          document.getElementById('password').classList.add('error');
+          err.classList.add('show');
+          btn.disabled = false;
+          btn.textContent = 'Sign In to Dashboard';
+        }
+      }, 600);
+    }
+
+    // Clear error on input
+    ['username','password'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => {
+        document.getElementById(id).classList.remove('error');
+        document.getElementById('errorMsg').classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

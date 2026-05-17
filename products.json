@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "lastUpdated": "2026-05-16T00:00:00Z",
+    "version": "1.0"
+  },
+  "hero": {
+    "title": "Our",
+    "titleHighlight": "Products",
+    "subtitle": "Discover AL AROUBA HEALTH's curated range of premium pharmaceutical, medical, and wellness products — sourced from world-class manufacturers and delivered with unwavering quality assurance.",
+    "badges": [
+      "WHO-GMP Certified",
+      "Cold Chain Managed",
+      "Regulatory Compliant",
+      "Expert Medical Team"
+    ]
+  },
+  "stats": [
+    { "number": "500", "suffix": "+", "label": "Product SKUs" },
+    { "number": "40",  "suffix": "+", "label": "Global Brands" },
+    { "number": "6",   "suffix": "",  "label": "Core Categories" },
+    { "number": "100", "suffix": "%", "label": "Quality Verified" }
+  ],
+  "section": {
+    "label": "WHAT WE CARRY",
+    "title": "Comprehensive Healthcare Product Portfolio",
+    "subtitle": "Every product in our portfolio meets stringent international standards — giving healthcare professionals and patients confidence in every item we supply."
+  },
+  "products": [
+    {
+      "id": "prod_001",
+      "visible": true,
+      "order": 1,
+      "icon": "💊",
+      "gradientFrom": "#0d2d6b",
+      "gradientTo": "#2a7fd4",
+      "title": "Pharmaceuticals",
+      "description": "Prescription and over-the-counter medications sourced from WHO-GMP certified manufacturers. Covering acute, chronic, and specialty therapeutic areas.",
+      "tags": ["Antibiotics", "Cardiology", "Diabetes Care", "Pain Relief", "Oncology"],
+      "image": ""
+    },
+    {
+      "id": "prod_002",
+      "visible": true,
+      "order": 2,
+      "icon": "🩺",
+      "gradientFrom": "#059669",
+      "gradientTo": "#34d399",
+      "title": "Medical Devices & Equipment",
+      "description": "CE-marked and FDA-registered diagnostic tools, monitoring devices, and clinical instruments for hospitals, clinics, and home care.",
+      "tags": ["Diagnostics", "Monitoring", "Surgical Tools", "Rehabilitation"],
+      "image": ""
+    },
+    {
+      "id": "prod_003",
+      "visible": true,
+      "order": 3,
+      "icon": "🧴",
+      "gradientFrom": "#be185d",
+      "gradientTo": "#f472b6",
+      "title": "Cosmetics & Dermatology",
+      "description": "Medically formulated skincare, dermocosmetics, and personal care products trusted by dermatologists and beauty professionals.",
+      "tags": ["Skincare", "Sunscreen", "Anti-Aging", "Wound Care"],
+      "image": ""
+    },
+    {
+      "id": "prod_004",
+      "visible": true,
+      "order": 4,
+      "icon": "🌿",
+      "gradientFrom": "#d97706",
+      "gradientTo": "#fbbf24",
+      "title": "Vitamins & Supplements",
+      "description": "High-bioavailability vitamins, minerals, and nutraceuticals to support immunity, energy, bone health, and overall wellness.",
+      "tags": ["Multivitamins", "Omega-3", "Probiotics", "Immunity"],
+      "image": ""
+    },
+    {
+      "id": "prod_005",
+      "visible": true,
+      "order": 5,
+      "icon": "🩹",
+      "gradientFrom": "#7c3aed",
+      "gradientTo": "#a78bfa",
+      "title": "Medical Consumables",
+      "description": "Sterile disposables, wound-care supplies, and clinical consumables that meet hospital-grade infection-control standards.",
+      "tags": ["Gloves", "Syringes", "Bandages", "IV Supplies"],
+      "image": ""
+    },
+    {
+      "id": "prod_006",
+      "visible": true,
+      "order": 6,
+      "icon": "👶",
+      "gradientFrom": "#0891b2",
+      "gradientTo": "#67e8f9",
+      "title": "Baby & Mother Care",
+      "description": "Gentle, clinically tested products for newborns, infants, and mothers — from pediatric nutrition to postnatal wellness solutions.",
+      "tags": ["Infant Formula", "Baby Skincare", "Postnatal", "Pediatrics"],
+      "image": ""
+    }
+  ]
+}
